@@ -1,15 +1,10 @@
 import 'dart:io';
 
-class error {
-  final String message;
-  error(this.message);
-}
+import 'examples/examples.dart' as examples;
+import 'types/errors/error.dart';
+import 'types/mapping/mapping.dart';
 
-class notfound extends error {
-  notfound() : super('not found');
-}
-
-var _map = <String, error? Function()>{};
+var _map = ExampleMapping();
 
 void run(bool onetime) {
   if (_build() != null) {
@@ -46,24 +41,15 @@ void run(bool onetime) {
   }
 }
 
-error? helloworld() {
-  print('hello world');
-  return null;
-}
-
 error? _build() {
-  _map['basic_helloworld'] = helloworld;
+  examples.build(_map);
 }
 
 error? _run(String target) {
-  if (!_map.containsKey(target)) {
+  var fn = _map.get(target);
+  if (fn == null) {
     return notfound();
   }
 
-  var fn = _map[target];
-  if (fn != null) {
-    return fn();
-  }
-
-  return null;
+  return fn();
 }
