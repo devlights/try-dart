@@ -2,7 +2,7 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - command: dart pub get
+  - command: make prepare
 
 vscode:
   extensions:
