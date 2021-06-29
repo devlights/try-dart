@@ -31,6 +31,10 @@ void run(bool onetime) {
         continue;
       }
 
+      if (err is candidatesFound) {
+        continue;
+      }
+
       stderr.writeln(err.message);
       return;
     }
@@ -46,10 +50,36 @@ error? _build() {
 }
 
 error? _run(String target) {
-  var fn = _map.get(target);
-  if (fn == null) {
+  var c = _map.candidates(target);
+  if (c.isEmpty) {
     return notfound();
   }
 
-  return fn();
+  if (c.length > 1) {
+    stdout.writeln('There is ${c.length} candidates.');
+
+    for (var e in c) {
+      stdout.writeln('${e.key}');
+    }
+
+    return candidatesFound();
+  }
+
+  // there is only one candidate. execute it.
+  var r = c[0].key;
+
+  stdout.writeln('[INPUT  ]: $target');
+  stdout.writeln('[EXAMPLE]: $r');
+  stdout.writeln('=============== START ===============');
+
+  try {
+    var fn = _map.get(r);
+    if (fn == null) {
+      return notfound();
+    }
+
+    return fn();
+  } finally {
+      stdout.writeln('===============  END  ===============');
+  }
 }
