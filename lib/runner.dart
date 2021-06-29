@@ -56,6 +56,8 @@ error? _run(String target) {
   }
 
   if (c.length > 1) {
+    stdout.writeln('There is ${c.length} candidates.');
+
     for (var e in c) {
       stdout.writeln('${e.key}');
     }
@@ -64,10 +66,20 @@ error? _run(String target) {
   }
 
   // there is only one candidate. execute it.
-  var fn = _map.get(c[0].key);
-  if (fn == null) {
-    return notfound();
-  }
+  var r = c[0].key;
 
-  return fn();
+  stdout.writeln('[INPUT  ]: $target');
+  stdout.writeln('[EXAMPLE]: $r');
+  stdout.writeln('=============== START ===============');
+
+  try {
+    var fn = _map.get(r);
+    if (fn == null) {
+      return notfound();
+    }
+
+    return fn();
+  } finally {
+      stdout.writeln('===============  END  ===============');
+  }
 }
