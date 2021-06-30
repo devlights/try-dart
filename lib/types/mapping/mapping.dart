@@ -15,15 +15,22 @@ class ExampleMapping {
     return null;
   }
 
-  List<MapEntry<String, error? Function()>> candidates(String target) {
-    var r = <MapEntry<String, error? Function()>>[];
+  List<Candidate> candidates(String target) {
+    var r = <Candidate>[];
 
     for (var e in m.entries) {
       if (e.key.contains(target)) {
-        r.add(e);
+        r.add(Candidate(name: e.key, target: e.value));
       }
     }
 
     return r;
   }
+}
+
+class Candidate {
+  final String name;
+  final error? Function() target;
+
+  Candidate({required this.name, required this.target});
 }

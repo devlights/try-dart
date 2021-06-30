@@ -49,37 +49,35 @@ error? _build() {
   examples.build(_map);
 }
 
-error? _run(String target) {
-  var c = _map.candidates(target);
-  if (c.isEmpty) {
+error? _run(String name) {
+  var candidates = _map.candidates(name);
+
+  // there is no candidate.
+  if (candidates.isEmpty) {
     return notfound();
   }
 
-  if (c.length > 1) {
-    stdout.writeln('There is ${c.length} candidates.');
+  // there is multiple candidates. choice it.
+  if (candidates.length > 1) {
+    stdout.writeln('There is ${candidates.length} candidates.');
 
-    for (var e in c) {
-      stdout.writeln('${e.key}');
+    for (var e in candidates) {
+      stdout.writeln('${e.name}');
     }
 
     return candidatesFound();
   }
 
   // there is only one candidate. execute it.
-  var r = c[0].key;
+  var exec = candidates.first;
 
-  stdout.writeln('[INPUT  ]: $target');
-  stdout.writeln('[EXAMPLE]: $r');
+  stdout.writeln('[INPUT  ]: $name');
+  stdout.writeln('[EXAMPLE]: ${exec.name}');
   stdout.writeln('=============== START ===============');
 
   try {
-    var fn = _map.get(r);
-    if (fn == null) {
-      return notfound();
-    }
-
-    return fn();
+    return exec.target();
   } finally {
-      stdout.writeln('===============  END  ===============');
+    stdout.writeln('===============  END  ===============');
   }
 }
