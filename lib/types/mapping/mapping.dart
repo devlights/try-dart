@@ -1,13 +1,13 @@
 import 'package:try_dart/types/errors/error.dart';
 
 class ExampleMapping {
-  final m = <String, error? Function()>{};
+  final m = <String, Error? Function()>{};
 
-  void add(String target, error? Function() fn) {
+  void add(String target, Error? Function() fn) {
     m[target] = fn;
   }
 
-  error? Function()? get(String target) {
+  Error? Function()? get(String target) {
     if (m.containsKey(target)) {
       return m[target];
     }
@@ -34,7 +34,7 @@ class ExampleMapping {
 
 class Candidate {
   final String name;
-  final error? Function() target;
+  final Error? Function() target;
 
   Candidate({required this.name, required this.target});
 }

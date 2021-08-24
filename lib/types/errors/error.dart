@@ -1,12 +1,12 @@
-class error {
+class Error {
   final String message;
-  error(this.message);
+  Error(this.message);
 }
 
-class notfound extends error {
-  notfound() : super('not found');
+class NotFound extends Error {
+  NotFound() : super('not found');
 }
 
-class candidatesFound extends error {
-  candidatesFound() : super('there is one more candidates found');
+class CandidatesFound extends Error {
+  CandidatesFound() : super('there is one more candidates found');
 }

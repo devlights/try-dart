@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? positional() {
+Error? positional() {
   // 通常のプログラミング言語でよくあるパターンのパラメータ指定
   final obj = _Positional('helloworld', 99);
   print(obj);

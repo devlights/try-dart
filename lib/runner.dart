@@ -26,12 +26,12 @@ void run(bool onetime) {
 
     var err = _run(line);
     if (err != null) {
-      if (err is notfound) {
+      if (err is NotFound) {
         stdout.writeln('not found...try again');
         continue;
       }
 
-      if (err is candidatesFound) {
+      if (err is CandidatesFound) {
         continue;
       }
 
@@ -45,16 +45,16 @@ void run(bool onetime) {
   }
 }
 
-error? _build() {
+Error? _build() {
   examples.build(_map);
 }
 
-error? _run(String name) {
+Error? _run(String name) {
   var candidates = _map.candidates(name);
 
   // there is no candidate.
   if (candidates.isEmpty) {
-    return notfound();
+    return NotFound();
   }
 
   // there is multiple candidates. choice it.
@@ -65,7 +65,7 @@ error? _run(String name) {
       stdout.writeln('${e.name}');
     }
 
-    return candidatesFound();
+    return CandidatesFound();
   }
 
   // there is only one candidate. execute it.

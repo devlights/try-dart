@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? helloworld() {
+Error? helloworld() {
   print('hello world');
   return null;
 }

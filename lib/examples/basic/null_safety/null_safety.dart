@@ -3,7 +3,7 @@ import 'package:try_dart/types/errors/error.dart';
 /// Dart の Sound null safety についてのサンプルです.
 ///
 /// - https://dart.dev/null-safety
-error? nullSafety() {
+Error? nullSafety() {
   final v = _intOrNull();
 
   // v の型は int? となっている.

@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? namedOptional() {
+Error? namedOptional() {
   final obj1 = _NamedOptional('hello');
   final obj2 = _NamedOptional('world', age: 88);
 

@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? named() {
+Error? named() {
   final obj1 = _Named('hello');
   final obj2 = _Named('world', age: 99);
 

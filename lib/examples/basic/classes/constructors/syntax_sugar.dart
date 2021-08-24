@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? syntaxSugar() {
+Error? syntaxSugar() {
   final obj1 = _SyntaxSugar('hello', 99);
 
   [obj1].forEach(print);

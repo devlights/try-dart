@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? optional() {
+Error? optional() {
   final obj1 = _Optional('hello');
   final obj2 = _Optional('world', 99);
 

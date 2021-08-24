@@ -3,7 +3,7 @@ import 'package:try_dart/types/errors/error.dart';
 /// Dart の Null aware operators についてのサンプルです.
 ///
 /// - https://dart.dev/codelabs/dart-cheatsheet#null-aware-operators
-error? nullAwareOperator() {
+Error? nullAwareOperator() {
   // null safety 機能によって、null許容とマークされている型の値を利用するためには
   // nullかどうかをチェックしないといけなくなった。
   //

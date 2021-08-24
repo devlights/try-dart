@@ -1,7 +1,7 @@
 import 'package:try_dart/types/errors/error.dart';
 
 /// Dart での 文字列 の基本についてのサンプルです.
-error? basic() {
+Error? basic() {
   // Dart の 文字列 は、シングルクォートでもダブルクォートでも同じ
   // だが、ダブルクォートで文字列を生成すると以下の警告が表示される.
   //

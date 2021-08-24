@@ -1,6 +1,6 @@
 import 'package:try_dart/types/errors/error.dart';
 
-error? withRequired() {
+Error? withRequired() {
   final obj1 = _WithRequired(name: 'hello', age: 99);
   final obj2 = _WithRequired2('world', age: 88);
   final obj3 = _WithRequired2('helloworld', age: 77, memo: 'hello-world');
