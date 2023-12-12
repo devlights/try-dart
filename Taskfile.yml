@@ -11,6 +11,7 @@ tasks:
     cmds:
       - dart create . --force
       - git restore README.md
+      - git restore .gitignore
   clean:
     cmds:
       - rm -rf bin/ lib/ test/ .dart_tool/
