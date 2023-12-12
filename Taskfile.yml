@@ -14,9 +14,8 @@ tasks:
       - git restore .gitignore
   clean:
     cmds:
-      - rm -rf bin/ lib/ test/ .dart_tool/
+      - rm -rf bin/ doc/ lib/ test/ .dart_tool/
       - rm -f analysis_options.yaml pubspec.*
   run:
     cmds:
       - dart run
-
