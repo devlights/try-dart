@@ -5,5 +5,9 @@ version: '3'
 tasks:
   default:
     cmds:
-      - dart run
+      - dart --version
     silent: false
+  init:
+    cmds:
+      - dart create .
+
