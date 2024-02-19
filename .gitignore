@@ -25,3 +25,13 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+
+#
+# Project
+#
+bin/
+lib/
+test/
+analysis_options.yaml
+pubspec.*
