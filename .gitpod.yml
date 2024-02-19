@@ -5,8 +5,8 @@ tasks:
   - name: initial
     init:
       go install github.com/go-task/task/v3/cmd/task@latest
-  - command: dart --disable-analytics
 
 vscode:
   extensions:
-    - Dart-Code.dart-code
+    - dart-code.flutter
+    - dart-code.dart-code
