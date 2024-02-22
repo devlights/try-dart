@@ -4,7 +4,9 @@ image:
 tasks:
   - name: initial
     init:
-      go install github.com/go-task/task/v3/cmd/task@latest
+      go install github.com/go-task/task/v3/cmd/task@latest &&
+      dart --disable-analytics &&
+      dart pub get
 
 vscode:
   extensions:

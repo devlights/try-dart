@@ -4,22 +4,24 @@ version: '3'
 
 tasks:
   default:
-    desc: Dartバージョンを表示
+    desc: Show dart version
     cmds:
       - dart --version
     silent: false
-  init:
-    desc: 初期化
-    cmds:
-      - dart create . --force
-      - git restore README.md
-      - git restore .gitignore
-  clean:
-    desc: クリーン
-    cmds:
-      - rm -rf bin/ doc/ lib/ test/ .dart_tool/
-      - rm -f analysis_options.yaml pubspec.*
   run:
-    desc: 実行
+    desc: Run
+    deps: [ build ]
     cmds:
-      - dart run
+      - bin/try_dart.exe
+  vet:
+    desc: Run dart analyze
+    cmds:
+      - dart analyze
+  fmt:
+    desc: Run dart format
+    cmds:
+      - dart format .
+  build:
+    desc: Run dart compile
+    cmds:
+      - dart compile exe bin/try_dart.dart
